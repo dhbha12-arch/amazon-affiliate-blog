@@ -131,10 +131,14 @@
     var body = postBody ? postBody.textContent : "";
     var text = (title + " " + body.slice(0, 2500)).toLowerCase();
 
-    if (/scientist|science|invention|inventor|technology|engineer/.test(text)) return "books";
-    if (/history|historical|king|queen|emperor|freedom fighter|war|ancient/.test(text)) return "books";
-    if (/festival|diwali|holi|raksha|christmas|eid|navratri|ganesh/.test(text)) return "home";
-    if (/politician|president|prime minister|leader|politics|freedom|actor|actress|celebrity|film|movie|bollywood|hollywood|singer|musician/.test(text)) return "books";
+    // Match specific product topics first so a general word like "technology"
+    // does not incorrectly override a mobile/computer/fashion article.
+    if (/smartphone|smart phone|mobile phone|mobile review|android phone|iphone|5g phone|mobile price|मोबाइल|स्मार्टफोन/.test(text)) return "mobile";
+    if (/laptop|notebook pc|desktop pc|computer|tablet|keyboard|computer mouse|graphics card|ssd|ram upgrade|कंप्यूटर|लैपटॉप/.test(text)) return "computers";
+    if (/earbuds|headphones|bluetooth speaker|smartwatch|smart watch|camera|television|tv review|power bank|charger|electronics|इलेक्ट्रॉनिक्स/.test(text)) return "electronics";
+    if (/fashion|clothing|outfit|shirt|jeans|shoes|footwear|saree|kurti|dress|watch|handbag|fashion accessories|फैशन|कपड़े/.test(text)) return "fashion";
+    if (/festival|diwali|holi|raksha|christmas|eid|navratri|ganesh|kitchen|home decor|furniture|घर की सजावट/.test(text)) return "home";
+    if (/biography|autobiography|scientist|science|invention|inventor|engineer|history|historical|king|queen|emperor|freedom fighter|war|ancient|politician|president|prime minister|leader|politics|actor|actress|celebrity|film|movie|bollywood|hollywood|singer|musician/.test(text)) return "books";
     return "books";
   }
 
