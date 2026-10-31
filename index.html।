@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>My Amazon Store</title>
+<style>
+body{font-family:Arial;margin:0;background:#f5f5f5}
+header{background:#232f3e;color:white;padding:20px;text-align:center}
+.container{max-width:1000px;margin:auto;padding:20px}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.product{background:white;padding:15px;border-radius:10px;text-align:center}
+.product img{width:100%;height:180px;object-fit:contain}
+.buy{display:block;background:#ff9900;color:#111;padding:12px;text-decoration:none;border-radius:6px;font-weight:bold}
+</style>
+</head>
+<body>
+<header>
+<h2>My Amazon Affiliate Store</h2>
+<p>Best Products & Deals</p>
+</header>
+<div class="container">
+<h2>Recommended Products</h2>
+<div class="products" id="products"></div>
+</div>
+<script>
+const products = [
+{
+name:"Wireless Earbuds",
+image:"https://placehold.co/300x200?text=Earbuds",
+link:"https://www.amazon.in/?tag=YOURTAG-21"
+},
+{
+name:"Smart Watch",
+image:"https://placehold.co/300x200?text=Smart+Watch",
+link:"https://www.amazon.in/?tag=YOURTAG-21"
+}
+];
+
+document.getElementById("products").innerHTML =
+products.map(p => `
+<div class="product">
+<img src="${p.image}" alt="${p.name}">
+<h3>${p.name}</h3>
+<a class="buy" href="${p.link}" target="_blank" rel="nofollow sponsored noopener">
+Buy on Amazon
+</a>
+</div>
+`).join("");
+</script>
+</body>
+</html>
