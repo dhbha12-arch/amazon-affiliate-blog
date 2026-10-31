@@ -29,12 +29,12 @@ const products = [
 {
 name:"Wireless Earbuds",
 image:"https://placehold.co/300x200?text=Earbuds",
-link:"https://www.amazon.in/?tag=YOURTAG-21"
+link:"https://www.amazon.in/?tag=wwwblogge0295-21"
 },
 {
 name:"Smart Watch",
 image:"https://placehold.co/300x200?text=Smart+Watch",
-link:"https://www.amazon.in/?tag=YOURTAG-21"
+link:"https://www.amazon.in/?tag=wwwblogge0295-21"
 }
 ];
 
