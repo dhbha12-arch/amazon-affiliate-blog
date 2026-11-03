@@ -26,7 +26,6 @@ function csv(){var rows=[['Score','Title','URL','Words','Images','Internal links
 var activePost=null;
 function openImprover(i){activePost=reports[i];$('newTitle').value=activePost.title;$('newMeta').value='';$('originalPost').value=activePost.plainText;$('improvedPost').value='';$('improveModal').classList.add('open')}
 function makePrompt(){if(!activePost)return '';return 'You are an expert SEO editor for a Blogger biography website. Improve the following post in clear, natural English (retain the language of the source). Do not invent facts, dates, quotes, awards, relationships, or sources. Preserve all verified facts and meaning. Avoid keyword stuffing and unnecessary rewriting. Return exactly these sections: 1) SEO title (50–60 characters if natural), 2) meta description (150–160 characters if natural), 3) improved complete article in clean HTML suitable for Blogger using useful H2/H3 headings, readable paragraphs, and the original images/links where possible, 4) short list of factual questions or missing information that needs human verification. Keep the article helpful and original.\n\nCurrent title: '+activePost.title+'\n\nArticle text:\n'+activePost.plainText}
-}
 $('rows').addEventListener('click',function(e){var b=e.target.closest('.aiBtn');if(b)openImprover(Number(b.getAttribute('data-i')))});
 function closeImprover(){$('improveModal').classList.remove('open')}
 $('closeModal').addEventListener('click',closeImprover);$('closeModal2').addEventListener('click',closeImprover);
